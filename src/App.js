@@ -3,14 +3,15 @@ import './App.css';
 import bubbleSort from './Visuals/bubble'
 import selectSort from './Visuals/selection'
 import insertSort from './Visuals/insertion'
+import mergeSort from './Visuals/merge'
 
 //primary color
 const PRIM_COL = "#008CBA"
 
 function App() {
   const [arr,setArr] = useState([1])
-  const [range,setRange] = useState(10)
-  const [speed,setSpeed] = useState(100)
+  const [range,setRange] = useState(150)
+  const [speed,setSpeed] = useState(250)
   const [disable,setDisable] = useState(false)
 
   useEffect(()=>{
@@ -47,13 +48,13 @@ function App() {
           <button disabled={disable} onClick={()=>insertSort(arr,max,speed,toggle)} className="sort-button">Insertion Sort</button>
           <div className="range-display">{range}
             <input  disabled={disable} className="speed-slider" 
-                    style={{transform:"rotate(180deg)",width:"50%"}}  
-                    type="range" min="0.3" max="1000" value={speed} 
+                    style={{transform:"rotate(180deg)"}}  
+                    type="range" min="0.3" max="500" value={speed} 
                     onChange={({target})=>setSpeed(target.value)}>
             </input>
           </div>
           <button disabled={disable} onClick={()=>selectSort(arr,max,speed,toggle)} className="sort-button">Selection Sort</button>
-          <button disabled={disable} className="sort-button">Merge Sort</button>
+          <button disabled={disable} onClick={()=>mergeSort(arr,max,speed,toggle)} className="sort-button">Merge Sort</button>
       </div>
       <div className="bar-container" >
         {arr.map((value, idx) => (
@@ -61,14 +62,13 @@ function App() {
                 className="bar"
                 key={idx}
                 style={{
-                backgroundColor: PRIM_COL,
-                height: `${(window.innerHeight-130)*value/max}px`,
-                width:`${(window.innerWidth-40)/arr.length}px`,
+                  backgroundColor: PRIM_COL,
+                  height: `${(window.innerHeight-130)*value/max}px`,
+                  width:`${(window.innerWidth-40)/arr.length}px`,
                 }}
             ></div>
         ))}
       </div>
-
     </div>
   );
 }
