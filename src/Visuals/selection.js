@@ -58,7 +58,7 @@ const selectSort = (arr,max,speed,toggle) => {
     const barStyle = arrayBars[array.length-1].style
     barStyle.backgroundColor = FINAL_COL
   },animations.length * speed)
-  const TIME = speed * animations.length/2 + 1500
+  const TIME = speed * animations.length
   setTimeout(()=>toggle(false),TIME)
 }
 

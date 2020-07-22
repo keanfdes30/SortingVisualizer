@@ -65,7 +65,7 @@ const bubbleSort = (arr,max,speed,toggle) =>{
         },i * speed)
     }
   }
-  const TIME = speed * animations.length/2 + 1500
+  const TIME = speed * animations.length
   setTimeout(()=>toggle(false),TIME)
 }
 

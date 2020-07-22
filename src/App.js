@@ -11,7 +11,7 @@ const PRIM_COL = "#008CBA"
 function App() {
   const [arr,setArr] = useState([1])
   const [range,setRange] = useState(150)
-  const [speed,setSpeed] = useState(250)
+  const [speed,setSpeed] = useState(10)
   const [disable,setDisable] = useState(false)
 
   useEffect(()=>{
@@ -49,7 +49,7 @@ function App() {
           <div className="range-display">{range}
             <input  disabled={disable} className="speed-slider" 
                     style={{transform:"rotate(180deg)"}}  
-                    type="range" min="0.3" max="500" value={speed} 
+                    type="range" min="0.3" max="100" value={speed} 
                     onChange={({target})=>setSpeed(target.value)}>
             </input>
           </div>
